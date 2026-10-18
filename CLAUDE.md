@@ -142,6 +142,9 @@ place.
 
 - Test the project's behavior, not the behavior of the libraries it uses.
 - Coverage is reported; no minimum is enforced.
+- Test folders mirror the `src` layout. A test file is named after the module
+  it covers (`user.py` → `test_user.py`), or after the behavior it covers when
+  it tests one behavior rather than a whole module (`test_health.py`).
 
 ## Commits
 
