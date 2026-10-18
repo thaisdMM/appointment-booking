@@ -1,0 +1,40 @@
+[project]
+name = "appointment-booking"
+version = "0.1.0"
+description = "Web app for booking a clinic's services online, with an admin area."
+readme = "README.md"
+authors = [
+    { name = "Thaís Moreira" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.146.0",
+    "fastapi-cli>=0.0.32",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.14.0",
+    "mypy>=2.4.0",
+    "pre-commit>=4.7.0",
+    "pytest>=9.1.1",
+    "ruff>=0.17.1",
+]
+
+[tool.fastapi]
+entrypoint = "appointment_booking.main:app"
+
+[tool.ruff.lint]
+extend-select = ["I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+strict = true
+files = ["src", "tests"]
+
+[tool.pytest]
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib"]

@@ -1,1 +1,12 @@
 CLAUDE.local.md
+
+__pycache__/
+*.py[oc]
+build/
+dist/
+*.egg-info
+.venv/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.env
