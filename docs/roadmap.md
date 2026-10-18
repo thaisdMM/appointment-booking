@@ -12,13 +12,18 @@ This is a rewrite of a first version built in Flask. No code is carried over.
 ## Stack
 
 - FastAPI, Jinja2 templates, HTMX
-- SQLAlchemy 2.0, Alembic, PostgreSQL
-- Python 3.12, managed with uv
-- Ruff (lint and format), mypy in strict mode, pre-commit
-- pytest with coverage, run against a real PostgreSQL
-- GitHub Actions (`ci.yml`): lint, format check, type check, tests on every
-  push and pull request
-- Docker and Docker Compose from the first slice (app, PostgreSQL, Mailpit)
+- SQLAlchemy, Alembic, PostgreSQL 18
+- Python 3.14, managed with uv
+- Ruff (lint and format), mypy in strict mode
+- pre-commit: Ruff, mypy, Gitleaks, and basic file checks
+- pytest with a coverage report (no minimum enforced), run against a real
+  PostgreSQL
+- GitHub Actions (`ci.yml`), three parallel jobs: quality (Ruff lint, Ruff
+  format check, mypy), tests, and a build of the production image.
+  Documentation-only changes do not trigger it.
+- Docker from the first slice: one multi-stage Dockerfile with a `dev` target
+  for Docker Compose (app, PostgreSQL, Mailpit) and a lean `prod` target for
+  production
 - Deploy: Render (app) and Neon (PostgreSQL), deployed automatically from
   `main` after CI passes
 - Charts: Chart.js loaded in the page, fed by a JSON endpoint
@@ -54,8 +59,6 @@ Every slice ends deployed and visible in production.
 Decisions with impact that should become ADRs, written with the `/adr` skill:
 
 - Jinja2 + HTMX for the frontend
-- Render for the app and Neon for the database (requires checking the
-  providers' documentation for the facts the record states)
 - Storing times in UTC and converting to the clinic time zone at one point
 - Storing the service price on each appointment
 - Rescheduling as a cancellation with reason `rescheduled`, without a separate

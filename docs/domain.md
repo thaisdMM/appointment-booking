@@ -77,6 +77,13 @@ All figures are per month, with a month selector.
   color. Rescheduling is shown but excluded from the cancellation rate.
 - Summary figures: total appointments, cancellation rate, average ticket.
 
+## Language
+
+- Supported languages: Portuguese, English, French.
+- The language is part of the URL: `/pt/`, `/en/`, `/fr/`.
+- A visitor arriving without a language is sent to the browser's preferred
+  language when it is one of the three, otherwise to English.
+
 ## Privacy
 
 - Collect only the client data the booking needs.
@@ -84,5 +91,4 @@ All figures are per month, with a month selector.
 
 ## Open questions
 
-- Default language for a visitor who has not chosen one.
 - Consent checkbox wording and data retention period.

@@ -132,6 +132,17 @@ When a slice creates a module, move the business rules that belong to it from
 `docs/domain.md` into that module's `README.md`. Each rule lives in exactly one
 place.
 
+## Git workflow
+
+- Code changes go on a branch and reach `main` through a pull request, merged
+  with rebase.
+- Documentation-only changes are committed directly to `main`.
+
+## Tests
+
+- Test the project's behavior, not the behavior of the libraries it uses.
+- Coverage is reported; no minimum is enforced.
+
 ## Commits
 
 - Conventional Commits: `type(scope): subject`.
