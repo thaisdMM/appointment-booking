@@ -146,6 +146,13 @@ place.
   it covers (`user.py` → `test_user.py`), or after the behavior it covers when
   it tests one behavior rather than a whole module (`test_health.py`).
 
+## Configuration and secrets
+
+- Credentials and connection settings are never written in versioned files,
+  not even development-only values. They come from environment variables:
+  `.env` locally (ignored by git), the hosting dashboard in production.
+- `.env.example` is versioned with placeholder values only.
+
 ## Commits
 
 - Conventional Commits: `type(scope): subject`.
