@@ -20,3 +20,23 @@ to production; progress is tracked in [docs/roadmap.md](docs/roadmap.md).
 
 FastAPI, Jinja2, HTMX, SQLAlchemy, Alembic, PostgreSQL, Docker, GitHub
 Actions. Deployed on Render and Neon.
+
+## Running locally
+
+Requires Docker.
+
+1. Copy `.env.example` to `.env` and fill in the values.
+2. Start the app, PostgreSQL, and Mailpit:
+
+   ```
+   docker compose up --build
+   ```
+
+3. Open the app at http://localhost:8002 and the Mailpit inbox at
+   http://localhost:8025.
+
+Run the tests:
+
+```
+docker compose exec web pytest
+```
